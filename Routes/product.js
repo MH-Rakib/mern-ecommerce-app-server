@@ -56,14 +56,19 @@ router.get("/find/:id", async (req, res) => {
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
+  const qParentCategory = req.query.parentCategory;
   try {
     let products;
 
     if (qNew) {
-      products = await Product.find().sort({ createdAt: -1 }).limit(5);
+      products = await Product.find().sort({ price: -1 }).limit(1);
     } else if (qCategory) {
       products = await Product.find({
-        categories: qCategory,
+        category: qCategory,
+      });
+    } else if (qParentCategory) {
+      products = await Product.find({
+        parentCategory: qParentCategory,
       });
     } else {
       products = await Product.find();

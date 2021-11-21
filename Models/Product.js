@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
+    parentCategory: { type: String, require: true },
+    subCategory: { type: String, require: true },
     description: { type: String, required: true },
-    image: { type: String, required: true },
+    image: { type: Array, required: true },
     size: { type: Array },
     color: { type: Array },
     elevator: { type: Boolean, default: false },

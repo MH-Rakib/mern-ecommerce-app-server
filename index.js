@@ -1,5 +1,9 @@
 // imports
 const authRoute = require("./Routes/authentication");
+const productRoute = require("./Routes/product");
+const userRoute = require("./Routes/user");
+const orderRoute = require("./Routes/order");
+const cartRoute = require("./Routes/cart");
 
 const express = require("express");
 const app = express();
@@ -28,6 +32,10 @@ app.use(morgan());
 
 // Routes
 app.use("/api/auth", authRoute);
+app.use("/api/product", productRoute);
+// app.use("/api/auth", authRoute);
+// app.use("/api/auth", authRoute);
+// app.use("/api/auth", authRoute);
 
 const PORT = process.env.PORT || 8080;
 
